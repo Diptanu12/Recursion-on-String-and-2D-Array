@@ -1,0 +1,61 @@
+Number of ways to form Natural Number
+Find number of ways an integer N can be represented as a sum of unique natural numbers.
+
+Input Format
+First line contains a single integer N.
+
+Output Format
+Print a single integer containing number of ways.
+
+Example 1
+Input
+
+6
+Output
+
+4
+Explaination
+
+
+
+
+6 can be represented as (1, 2, 3), (1, 5), (2, 4), (6)
+
+Example 2
+Input
+
+7
+Output
+
+5
+Explaination
+
+7 can be represented as (1, 2, 4), (1, 6), (2, 5), (3, 4), (7)
+
+Constraints
+0 <= N <= 120
+
+Topics
+Recursion
+
+
+
+import java.io.*;
+import java.util.*;
+public class Main {
+    public static long ways(int n, int i){
+//Write your code here
+        if (n == 0) {
+             return 1;
+        }
+          if (n < 0 || i > n) {
+            return 0;
+        }
+        return ways(n - i, i + 1) + ways(n, i + 1);
+    }
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        System.out.println(ways(n, 1));
+    }
+}
