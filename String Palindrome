@@ -1,0 +1,71 @@
+String Palindrome
+A string is said to be a palindrome if it is the same if we start reading it from left to right or right to left. So given a string str, determine whether it is a palindrome or not.
+
+Input Format
+The first line of input contains string str.
+
+Output Format
+Print YES or NO.
+
+EXAMPLE 1
+Input
+
+abba
+Output
+
+YES
+Explanation
+
+abba is a palindromic string.
+
+Example 2
+Input
+
+geeks
+Output
+
+NO
+Explanation
+
+geeks is not a palindromic string.
+
+Constraints
+0 <= |str| <=10000
+
+Topics
+Recursion
+Strings
+Companies
+Infosys
+Oracle
+
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+
+    static boolean isPalindrome(String str){
+        // Write your code here
+        if(str.length()<=1){
+            return true;
+        }
+        else{
+            char s=str.charAt(0);
+            char e=str.charAt(str.length()-1);
+            if(s!=e){
+                return false;
+            }
+        }
+        return isPalindrome(str.substring(1, str.length()-1));
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str= sc.nextLine();
+        boolean result=isPalindrome(str);
+        if(result)
+            System.out.print("YES");
+        else
+            System.out.print("NO");
+    }
+}
